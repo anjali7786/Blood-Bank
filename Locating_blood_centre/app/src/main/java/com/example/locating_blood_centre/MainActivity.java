@@ -51,5 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(forget);
             }
         });
+        rgt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent forget=new Intent(MainActivity.this, choose_account.class);
+                startActivity(forget);
+            }
+        });
     }
 }
