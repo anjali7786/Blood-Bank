@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Locating_blood_centre</string>
+    <string name="log_in">LOG IN</string>
+    <string name="login">LOGIN</string>
+    <string name="register">REGISTER</string>
+    <string name="forget_password">FORGET PASSWORD</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="password">Password</string>
+</resources>
