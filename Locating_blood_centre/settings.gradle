@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Locating_blood_centre"
