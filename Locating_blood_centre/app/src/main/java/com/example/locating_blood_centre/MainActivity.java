@@ -1,7 +1,5 @@
 package com.example.locating_blood_centre;
 
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        User_Email = (EditText) findViewById(R.id.etEmail);
+        User_Email = (EditText) findViewById(R.id.etEmailrec);
         Pwd = (EditText) findViewById(R.id.etPwd);
         Login = (TextView) findViewById(R.id.tvLogin);
         log = (Button) findViewById(R.id.bLogin);

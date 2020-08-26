@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,9 +50,9 @@ public class register extends AppCompatActivity {
         pwd = (EditText) findViewById(R.id.editTextTextPassword);
         createacc = (TextView) findViewById(R.id.textView);
         bgroup = (TextView) findViewById(R.id.textView3);
-        login = (TextView) findViewById(R.id.textView2);
-        signup = (Button) findViewById(R.id.button);
-        signin = (Button) findViewById(R.id.bsignin);
+        login = (TextView) findViewById(R.id.tvhintbb);
+        signup = (Button) findViewById(R.id.bsignupbb);
+        signin = (Button) findViewById(R.id.bloginbb);
 
 
        /* THIS IS NOT CORRECT NOW signup.setOnClickListener(new View.OnClickListener() {

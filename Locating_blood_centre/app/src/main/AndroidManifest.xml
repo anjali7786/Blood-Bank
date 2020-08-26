@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        >
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,10 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Recover_Account"></activity>
-        <activity android:name=".choose_account"></activity>
-        <activity android:name=".register"></activity>
-        <activity android:name=".Register_hospital"></activity>
+        <activity android:name=".Recover_Account" />
+        <activity android:name=".choose_account" />
+        <activity android:name=".register" />
+        <activity android:name=".Register_hospital" />
+        <activity android:name=".Register_bloodbank" />
 
     </application>
 

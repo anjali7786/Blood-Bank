@@ -29,7 +29,7 @@ public class choose_account extends AppCompatActivity {
         createacc = (TextView) findViewById(R.id.textView4);
         tchoose = (TextView) findViewById(R.id.textView5);
         apply = findViewById(R.id.button2);
-        bac = findViewById(R.id.button3);
+        bac = findViewById(R.id.bback);
 
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,11 +52,11 @@ public class choose_account extends AppCompatActivity {
 
                 }
                 else if(rbutton.getText().equals("Blood bank")) {
-                    /*
 
-                            Intent forget=new Intent(choose_account.this, register_bloodbank.class);
+
+                            Intent forget=new Intent(choose_account.this, Register_bloodbank.class);
                             startActivity(forget);
-                     */
+
                 }
 
 
