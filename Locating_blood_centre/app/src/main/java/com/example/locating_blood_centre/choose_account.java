@@ -45,11 +45,11 @@ public class choose_account extends AppCompatActivity {
                 }
                 else if(rbutton.getText().equals("Hospital"))
                 {
-                    /*
 
-                            Intent forget=new Intent(choose_account.this, register_hospital.class);
+
+                            Intent forget=new Intent(choose_account.this, Register_hospital.class);
                             startActivity(forget);
-                    */
+
                 }
                 else if(rbutton.getText().equals("Blood bank")) {
                     /*

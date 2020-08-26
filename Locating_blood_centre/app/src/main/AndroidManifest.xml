@@ -19,6 +19,8 @@
         <activity android:name=".Recover_Account"></activity>
         <activity android:name=".choose_account"></activity>
         <activity android:name=".register"></activity>
+        <activity android:name=".Register_hospital"></activity>
+
     </application>
 
 </manifest>
