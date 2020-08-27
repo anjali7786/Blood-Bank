@@ -47,6 +47,7 @@ public class Register_bloodbank extends AppCompatActivity {
             public void onClick(View view) {
                 Intent forget=new Intent(Register_bloodbank.this, MainActivity.class);
                 startActivity(forget);
+                finish();
             }
         });
 

@@ -42,6 +42,7 @@ public class choose_account extends AppCompatActivity {
 
                             Intent forget=new Intent(choose_account.this, register.class);
                             startActivity(forget);
+                            finish();
                 }
                 else if(rbutton.getText().equals("Hospital"))
                 {
@@ -49,6 +50,7 @@ public class choose_account extends AppCompatActivity {
 
                             Intent forget=new Intent(choose_account.this, Register_hospital.class);
                             startActivity(forget);
+                            finish();
 
                 }
                 else if(rbutton.getText().equals("Blood bank")) {
@@ -56,6 +58,7 @@ public class choose_account extends AppCompatActivity {
 
                             Intent forget=new Intent(choose_account.this, Register_bloodbank.class);
                             startActivity(forget);
+                            finish();
 
                 }
 
@@ -67,6 +70,7 @@ public class choose_account extends AppCompatActivity {
             public void onClick(View view) {
                 Intent forget=new Intent(choose_account.this, MainActivity.class);
                 startActivity(forget);
+                finish();
             }
         });
 

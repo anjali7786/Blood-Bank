@@ -21,6 +21,7 @@ public class Register_hospital extends AppCompatActivity {
             public void onClick(View view) {
                 Intent forget=new Intent(Register_hospital.this, MainActivity.class);
                 startActivity(forget);
+                finish();
             }
         });
 
