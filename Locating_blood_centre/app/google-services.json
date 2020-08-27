@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "952417736706",
+    "firebase_url": "https://locatingbloodcentre.firebaseio.com",
+    "project_id": "locatingbloodcentre",
+    "storage_bucket": "locatingbloodcentre.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952417736706:android:b800350ea11b385854ef1b",
+        "android_client_info": {
+          "package_name": "com.example.locating_blood_centre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952417736706-aipkhqd77po1lplroo8ncie1thq1rb19.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.locating_blood_centre",
+            "certificate_hash": "9f622bdd6927242302dfddda39605b6010d4971f"
+          }
+        },
+        {
+          "client_id": "952417736706-j5j4rtupkvlsfmci7eu2okefs4hq06ar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6qAaZdTunCBHiBPlBRD3zQAH7q2-oK9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952417736706-j5j4rtupkvlsfmci7eu2okefs4hq06ar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
