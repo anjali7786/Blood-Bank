@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "952417736706-bo1p85de4hn2k36tqs8jkearf2in2nda.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.locating_blood_centre",
+            "certificate_hash": "2cd8c3959a781df5146729c754fcebec550a283d"
+          }
+        },
+        {
           "client_id": "952417736706-aipkhqd77po1lplroo8ncie1thq1rb19.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
