@@ -76,7 +76,7 @@ public class Register_hospital extends AppCompatActivity {
                 }
                 if(password.length()<6){
                     pwd.setError("Password Must be >= 6 Characters");
-return;         }
+                    return;         }
 
                 if(TextUtils.isEmpty(comfirm)){
                     comPwd.setError("Confirm Password is Required");
@@ -95,9 +95,10 @@ return;         }
                         if(task.isSuccessful()){
                             Toast.makeText(Register_hospital.this, "User Created", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                      }else{
+                      }
+                        else {
                         Toast.makeText(Register_hospital.this,"Error"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                        }
 }});
 };
 });
