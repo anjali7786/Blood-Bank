@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Register_bloodbank extends AppCompatActivity {
@@ -61,86 +65,101 @@ public class Register_bloodbank extends AppCompatActivity {
             startActivity(forget);
             finish();
         }
+        bbsignin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent forget = new Intent(Register_bloodbank.this, MainActivity.class);
+                startActivity(forget);
+                finish();
+            }
+        });
 
         bbsignup.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            String name = bbname.getText().toString().trim();
-                                            String email = bbemail.getText().toString().trim();
-                                            String pwd = bbpwd.getText().toString().trim();
-                                            String cpwd = bbconpwd.getText().toString().trim();
-                                            String address = bbaddress.getText().toString().trim();
-                                            String pin = bbpin.getText().toString().trim();
-                                            String phone = bbphone.getText().toString().trim();
-                                            String proof = bbproof.getText().toString().trim();
+            @Override
+            public void onClick(View view) {
+                String name = bbname.getText().toString().trim();
+                String email = bbemail.getText().toString().trim();
+                String pwd = bbpwd.getText().toString().trim();
+                String cpwd = bbconpwd.getText().toString().trim();
+                String address = bbaddress.getText().toString().trim();
+                String pin = bbpin.getText().toString().trim();
+                String phone = bbphone.getText().toString().trim();
+                String proof = bbproof.getText().toString().trim();
 
-                                            /* Setting Error messages */
-                                            if (TextUtils.isEmpty(name)) {
-                                                bbname.setError("Blood Bank Name is required");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(email)) {
-                                                bbemail.setError("Email is required");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(phone)) {
-                                                bbphone.setError("phone no. is required");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(pwd)) {
-                                                bbpwd.setError("Password is required");
-                                                return;
-                                            }
-                                            if (pwd.length() < 6) {
-                                                bbpwd.setError("Password must contain at least 6 characters");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(cpwd)) {
-                                                bbconpwd.setError("Confirm Password is required");
-                                                return;
-                                            }
-                                            if (!(pwd).equals(cpwd)) {
-                                                bbconpwd.setError("Password doesn't match");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(proof)) {
-                                                bbproof.setError("Proof is required");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(address)) {
-                                                bbaddress.setError("Address is required");
-                                                return;
-                                            }
-                                            if (TextUtils.isEmpty(pin)) {
-                                                bbpin.setError("Pincode is required");
-                                                return;
-                                            }
+                /* Setting Error messages */
+                if (TextUtils.isEmpty(name)) {
+                    bbname.setError("Blood Bank Name is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(email)) {
+                    bbemail.setError("Email is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(phone)) {
+                    bbphone.setError("phone no. is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(pwd)) {
+                    bbpwd.setError("Password is required");
+                    return;
+                }
+                if (pwd.length() < 6) {
+                    bbpwd.setError("Password must contain at least 6 characters");
+                    return;
+                }
+                if (TextUtils.isEmpty(cpwd)) {
+                    bbconpwd.setError("Confirm Password is required");
+                    return;
+                }
+                if (!(pwd).equals(cpwd)) {
+                    bbconpwd.setError("Password doesn't match");
+                    return;
+                }
+                if (TextUtils.isEmpty(proof)) {
+                    bbproof.setError("Proof is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(address)) {
+                    bbaddress.setError("Address is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(pin)) {
+                    bbpin.setError("Pincode is required");
+                    return;
+                }
 
-                                            /* Authentication of user */
-                                            fAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(Register_bloodbank.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                                        Intent forget = new Intent(Register_bloodbank.this, mainpersonalacc.class);
-                                                        startActivity(forget);
-                                                        /* Welcome Screen will be shown */
-                                                        finish();
-                                                    } else {
-                                                        Toast.makeText(Register_bloodbank.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                                    }
-                                                }
-                                            });
+                /* Authentication of user */
+                fAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
-                                            bbsignin.setOnClickListener(new View.OnClickListener() {
-                                                public void onClick(View view) {
-                                                    Intent forget = new Intent(Register_bloodbank.this, MainActivity.class);
-                                                    startActivity(forget);
-                                                    finish();
-                                                }
-                                            });
-                                        }
-                                    }
-        );
+                            //EMAIL VERIFICATION
+                            FirebaseUser user = fAuth.getCurrentUser();
+                            user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(Register_bloodbank.this,"Verification mail has been sent!",Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d("registerb","onFailure: Email not sent "+e.getMessage());
+                                }
+                            });
+
+                            Toast.makeText(Register_bloodbank.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Intent forget = new Intent(Register_bloodbank.this, mainpersonalacc.class);
+                            startActivity(forget);
+                            /* Welcome Screen will be shown */
+                            finish();
+                        } else {
+                            Toast.makeText(Register_bloodbank.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+            }
+        });
     }
 }

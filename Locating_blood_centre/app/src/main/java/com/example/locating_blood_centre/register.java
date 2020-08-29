@@ -142,7 +142,20 @@ public class register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            
+                            //EMAIL VERIFICATION
+                            FirebaseUser user = fAuth.getCurrentUser();
+                            user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(register.this,"Verification mail has been sent!",Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                   Log.d("registerp","onFailure: Email not sent "+e.getMessage());
+                                }
+                            });
+
                             Toast.makeText(register.this,"Registration Successful",Toast.LENGTH_SHORT).show();
                             Intent forget=new Intent(register.this, mainpersonalacc.class);
                             startActivity(forget);
